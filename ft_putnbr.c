@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n, int fd)
+int	ft_putnbr(int n)
 {
 	long	num;
 	int		count;
@@ -21,21 +21,21 @@ int	ft_putnbr(int n, int fd)
 	count = 0;
 	if (num == 0)
 	{
-		ft_putchar_fd('0', fd);
+		ft_putchar('0');
 		count++;
 		return (count);
 	}
 	if (num < 0)
 	{
-		ft_putchar_fd('-', fd);
+		ft_putchar('-');
 		count++;
 		num = num * (-1);
 	}
 	if (num >= 10)
 	{
-		count = count + ft_putnbr(num / 10, fd);
+		count = count + ft_putnbr(num / 10);
 	}
-	ft_putchar_fd((num % 10) + '0', fd);
+	ft_putchar((num % 10) + '0');
 	count++;
 	return (count);
 }

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_unsigned(unsigned int n, int fd)
+int	ft_unsigned(unsigned int n)
 {
 	unsigned long	num;
 	int				count;
@@ -21,15 +21,15 @@ int	ft_unsigned(unsigned int n, int fd)
 	count = 0;
 	if (num == 0)
 	{
-		ft_putchar_fd('0', fd);
+		ft_putchar('0');
 		count++;
 		return (count);
 	}
 	if (num >= 10)
 	{
-		count = count + ft_unsigned(num / 10, fd);
+		count = count + ft_unsigned(num / 10);
 	}
-	ft_putchar_fd((num % 10) + '0', fd);
+	ft_putchar((num % 10) + '0');
 	count++;
 	return (count);
 }

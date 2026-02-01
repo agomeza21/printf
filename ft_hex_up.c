@@ -25,7 +25,7 @@ int	ft_hex_up(unsigned int num)
 		digit = digit + '0';
 	else if (digit >= 10)
 		digit = (digit - 10) + 'A';
-	ft_putchar_fd(digit, 1);
+	ft_putchar(digit);
 	count++;
 	return (count);
 }

@@ -14,18 +14,17 @@
 # define PRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
 # include <stdint.h>
-# include <limits.h>
+# include <unistd.h>
 
-int	ft_putchar_fd(char c, int fd);
-int	text_conversion(char *especifiers, va_list *args);
-int	format_especifiers(const char *str, va_list *args);
-int	ft_putstr(char *str, int fd);
-int	ft_putnbr(int n, int fd);
-int	ft_unsigned(unsigned int n, int fd);
-int	ft_hex_low(unsigned int num);
-int	ft_hex_up(unsigned int num);
-int	ft_pointer(void *ptr);
+void	ft_putchar(char c);
+int	    text_conversion(char *especifiers, va_list *args);
+int	    format_especifiers(const char *str, va_list *args);
+int	    ft_putstr(char *str);
+int	    ft_putnbr(int n);
+int	    ft_unsigned(unsigned int n);
+int	    ft_hex_low(unsigned int num);
+int	    ft_hex_up(unsigned int num);
+int	    ft_pointer(void *ptr);
 
 #endif

@@ -15,33 +15,25 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 
-SRC = ft_printf.c format_especifiers.c ft_putstr.c ft_putnbr.c ft_unsigned.c ft_hex_low.c ft_hex_up.c ft_pointer.c
+SRC = ft_printf.c format_especifiers.c ft_putstr.c ft_putnbr.c ft_unsigned.c ft_hex_low.c ft_hex_up.c ft_pointer.c ft_putchar.c
 OBJ = $(SRC:.c=.o)
-
-LIBFT_DIR = libft
-LIBFT_OBJ = $(LIBFT_DIR)/*.o
 
 HEADERS = ft_printf.h
 
 all: $(NAME)
 
-libft:
-	$(MAKE) -C $(LIBFT_DIR)
-
-$(NAME): libft $(OBJ)
-	ar rcs $(NAME) $(OBJ) $(LIBFT_OBJ)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f $(OBJ)
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re

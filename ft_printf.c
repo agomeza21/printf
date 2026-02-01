@@ -25,7 +25,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] != '%')
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putchar(str[i]);
 			count++;
 			i++;
 		}
@@ -41,11 +41,14 @@ int	ft_printf(const char *str, ...)
 }
 
 /*
+#include <limits.h>
+#include <stdio.h>
+
 int	main(void)
 {
 	int	n;
 	int	a;
-	char *s = NULL;
+	//char *s = NULL;
 
 	printf("Test character and string\n\n");
 	n = ft_printf("Hello my name is %s and it starts with %c.\n", "", '\0');
@@ -82,46 +85,46 @@ int	main(void)
 	printf("ft_printf returned: %d\n", n);
 	printf("ft_printf returned: %d\n", a);
 	printf("\n");
-	
-	int mio;
-    int sys;
-    void *p = &mio;
+
+	int mine;
+    int syst;
+    void *p = &mine;
     char *str_null = NULL;
 
-    printf("--- 1. CARACTER (%%c) ---\n");
-    mio = ft_printf("Mio: %c | Nulo: %c\n", 'A', '\0');
-    sys = printf("Sys: %c | Nulo: %c\n", 'A', '\0');
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    printf("--- 1. CHARACTER (%%c) ---\n");
+    mine = ft_printf("Mine: %c | Null: %c\n", 'A', '\0');
+    syst = printf("Syst: %c | Null: %c\n", 'A', '\0');
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
     printf("--- 2. STRING (%%s) ---\n");
-    mio = ft_printf("Mio: %s | %s | %s\n", "42", "", str_null);
-    sys = printf("Sys: %s | %s | %s\n", "42", "", str_null);
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    mine = ft_printf("Mine: %s | %s | %s\n", "42", "", str_null);
+    syst = printf("Syst: %s | %s | %s\n", "42", "", str_null);
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
-    printf("--- 3. PUNTERO (%%p) ---\n");
-    mio = ft_printf("Mio: %p | %p\n", p, NULL);
-    sys = printf("Sys: %p | %p\n", p, NULL);
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    printf("--- 3. POINTER (%%p) ---\n");
+    mine = ft_printf("Mine: %p | %p\n", p, NULL);
+    syst = printf("Syst: %p | %p\n", p, NULL);
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
-    printf("--- 4. ENTEROS (%%d / %%i) ---\n");
-    mio = ft_printf("Mio: %d | %i | %d\n", INT_MIN, INT_MAX, 0);
-    sys = printf("Sys: %d | %i | %d\n", INT_MIN, INT_MAX, 0);
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    printf("--- 4. INTEGERS (%%d / %%i) ---\n");
+    mine = ft_printf("Mine: %d | %i | %d\n", INT_MIN, INT_MAX, 0);
+    syst = printf("Syst: %d | %i | %d\n", INT_MIN, INT_MAX, 0);
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
     printf("--- 5. UNSIGNED (%%u) ---\n");
-    mio = ft_printf("Mio: %u | %u\n", UINT_MAX, -10);
-    sys = printf("Sys: %u | %u\n", UINT_MAX, -10);
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    mine = ft_printf("Mine: %u | %u\n", UINT_MAX, -10);
+    syst = printf("Syst: %u | %u\n", UINT_MAX, -10);
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
     printf("--- 6. HEXADECIMAL (%%x / %%X) ---\n");
-    mio = ft_printf("Mio: %x | %X | %x\n", 255, 255, 0);
-    sys = printf("Sys: %x | %X | %x\n", 255, 255, 0);
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    mine = ft_printf("Mine: %x | %X | %x\n", 255, 255, 0);
+    syst = printf("Syst: %x | %X | %x\n", 255, 255, 0);
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
-    printf("--- 7. PORCENTAJE (%%%%) ---\n");
-    mio = ft_printf("Mio: %%%% | %%%% %%%%\n");
-    sys = printf("Sys: %%%% | %%%% %%%%\n");
-    printf("Retornos -> Mio: %d | Sys: %d\n\n", mio, sys);
+    printf("--- 7. PERCENTAGE (%%%%) ---\n");
+    mine = ft_printf("Mine: %%%% | %%%% %%%%\n");
+    syst = printf("Syst: %%%% | %%%% %%%%\n");
+    printf("Returned -> Mine: %d | Syst: %d\n\n", mine, syst);
 
     return (0);
 }*/

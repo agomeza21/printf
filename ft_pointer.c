@@ -22,11 +22,11 @@ int	ft_pointer(void *ptr)
 	count = 0;
 	if (ptr == NULL)
 	{
-		ft_putstr("(nil)", 1);
+		ft_putstr("(nil)");
 		count = count + 5;
 		return (count);
 	}
-	ft_putstr("0x", 1);
+	ft_putstr("0x");
 	count = count + 2;
 	uns_ptr = (uintptr_t)ptr;
 	count = count + hexadecimals(uns_ptr);
@@ -46,7 +46,7 @@ static int	hexadecimals(uintptr_t uns_ptr)
 		digit = digit + '0';
 	else if (digit >= 10)
 		digit = (digit - 10) + 'a';
-	ft_putchar_fd(digit, 1);
+	ft_putchar(digit);
 	count++;
 	return (count);
 }

@@ -12,22 +12,22 @@
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str, int fd)
+int	ft_putstr(char *str)
 {
 	int	count;
 	int	i;
 
 	count = 0;
-	if (!str || fd == -1)
+	if (!str)
 	{
-		ft_putstr("(null)", 1);
+		ft_putstr("(null)");
 		count = count + 6;
 		return (count);
 	}
 	i = 0;
 	while (str[i] != '\0')
 	{
-		ft_putchar_fd(str[i], fd);
+		ft_putchar(str[i]);
 		count++;
 		i++;
 	}
